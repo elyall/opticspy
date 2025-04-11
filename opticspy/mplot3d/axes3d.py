@@ -21,7 +21,7 @@ from operator import itemgetter
 
 import matplotlib.axes as maxes
 from matplotlib.axes import Axes
-from matplotlib import cbook, docstring, rcParams
+from matplotlib import cbook, rcParams
 import matplotlib.transforms as mtransforms
 from matplotlib.transforms import Bbox
 import matplotlib.collections as mcoll
@@ -776,7 +776,6 @@ class Axes3D(Axes):
             This function was added, but not tested. Please report any bugs.
         """
 
-    @docstring.dedent_interpd
     def set_zscale(self, value, **kwargs) :
         """
         call signature::
