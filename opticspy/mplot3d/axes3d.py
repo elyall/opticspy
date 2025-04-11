@@ -26,7 +26,7 @@ import matplotlib.transforms as mtransforms
 from matplotlib.transforms import Bbox
 import matplotlib.collections as mcoll
 import matplotlib.scale as mscale
-from matplotlib.tri.triangulation import Triangulation
+from matplotlib.tri import Triangulation
 import numpy as np
 from matplotlib.colors import Normalize, colorConverter, LightSource
 
