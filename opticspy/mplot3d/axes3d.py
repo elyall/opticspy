@@ -20,12 +20,11 @@ import warnings
 from operator import itemgetter
 
 import matplotlib.axes as maxes
-from matplotlib.axes import Axes, rcParams
-from matplotlib import cbook
+from matplotlib.axes import Axes
+from matplotlib import cbook, docstring, rcParams
 import matplotlib.transforms as mtransforms
 from matplotlib.transforms import Bbox
 import matplotlib.collections as mcoll
-from matplotlib import docstring
 import matplotlib.scale as mscale
 from matplotlib.tri.triangulation import Triangulation
 import numpy as np
