@@ -552,7 +552,7 @@ class Axes3D(Axes):
         return minx, maxx, miny, maxy, minz, maxz
 
     def _determine_lims(self, xmin=None, xmax=None, *args, **kwargs):
-        if xmax is None and cbook.iterable(xmin):
+        if xmax is None and np.iterable(xmin):
             xmin, xmax = xmin
         if xmin == xmax:
             xmin -= 0.05
@@ -573,7 +573,7 @@ class Axes3D(Axes):
         if kw:
             raise ValueError("unrecognized kwargs: %s" % kw.keys())
 
-        if right is None and cbook.iterable(left):
+        if right is None and np.iterable(left):
             left, right = left
 
         self._process_unit_info(xdata=(left, right))
@@ -628,7 +628,7 @@ class Axes3D(Axes):
         if kw:
             raise ValueError("unrecognized kwargs: %s" % kw.keys())
 
-        if top is None and cbook.iterable(bottom):
+        if top is None and np.iterable(bottom):
             bottom, top = bottom
 
         self._process_unit_info(ydata=(bottom, top))
@@ -682,7 +682,7 @@ class Axes3D(Axes):
         if kw:
             raise ValueError("unrecognized kwargs: %s" % kw.keys())
 
-        if top is None and cbook.iterable(bottom):
+        if top is None and np.iterable(bottom):
             bottom, top = bottom
 
         self._process_unit_info(zdata=(bottom, top))
@@ -1429,7 +1429,7 @@ class Axes3D(Axes):
         .. versionadded :: 1.1.0
             This function was added, but not tested. Please report any bugs.
         """
-        if upper is None and cbook.iterable(lower):
+        if upper is None and np.iterable(lower):
             lower,upper = lower
 
         old_lower,old_upper = self.get_zbound()
@@ -1495,7 +1495,7 @@ class Axes3D(Axes):
 
         argsi = 0
         # First argument is array of zs
-        if len(args) > 0 and cbook.iterable(args[0]) and \
+        if len(args) > 0 and np.iterable(args[0]) and \
                 len(xs) == len(args[0]) :
             # So, we know that it is an array with
             # first dimension the same as xs.
@@ -1511,7 +1511,7 @@ class Axes3D(Axes):
             argsi += 1
 
         # Match length
-        if not cbook.iterable(zs):
+        if not np.iterable(zs):
             zs = np.ones(len(xs)) * zs
 
         lines = Axes.plot(self, xs, ys, *args[argsi:], **kwargs)
@@ -2236,7 +2236,7 @@ class Axes3D(Axes):
         xs, ys, zs, s, c = cbook.delete_masked_points(xs, ys, zs, s, c)
 
         patches = Axes.scatter(self, xs, ys, s=s, c=c, *args, **kwargs)
-        if not cbook.iterable(zs):
+        if not np.iterable(zs):
             is_2d = True
             zs = np.ones(len(xs)) * zs
         else:
@@ -2279,7 +2279,7 @@ class Axes3D(Axes):
 
         patches = Axes.bar(self, left, height, *args, **kwargs)
 
-        if not cbook.iterable(zs):
+        if not np.iterable(zs):
             zs = np.ones(len(left)) * zs
 
         verts = []
@@ -2341,18 +2341,18 @@ class Axes3D(Axes):
         '''
         had_data = self.has_data()
 
-        if not cbook.iterable(x):
+        if not np.iterable(x):
             x = [x]
-        if not cbook.iterable(y):
+        if not np.iterable(y):
             y = [y]
-        if not cbook.iterable(z):
+        if not np.iterable(z):
             z = [z]
 
-        if not cbook.iterable(dx):
+        if not np.iterable(dx):
             dx = [dx]
-        if not cbook.iterable(dy):
+        if not np.iterable(dy):
             dy = [dy]
-        if not cbook.iterable(dz):
+        if not np.iterable(dz):
             dz = [dz]
 
         if len(dx) == 1:
